@@ -45,6 +45,8 @@ html {
     align-items: center;
     justify-content: space-between;
     color:#AEAAA6;
+    padding-left: 2em;
+    padding-right: 2em;
   }
 
   .intro{
@@ -68,7 +70,7 @@ html {
     justify-content: space-around;
     align-items: center;
     
-    font-size: 7.5em;
+    font-size: 10.5em;
   }
 
   .title h1:nth-child(1){
