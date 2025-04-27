@@ -18,7 +18,7 @@ html {
   box-sizing: border-box;
   font-size: 16px;
   background-color: #131416;
-  
+
 }
 
 *,
@@ -44,7 +44,7 @@ ul {
 }
 
 div {
-/*   border: solid 1px red; */
+  /*   border: solid 1px red; */
 }
 
 ol,
@@ -69,6 +69,28 @@ img {
   color: #AEAAA6;
   padding-left: 2em;
   padding-right: 2em;
+  mix-blend-mode: difference;
+}
+
+progress {
+  color: #AEAAA6;
+  width: 20%;
+  background: transparent;
+  height: 2%;
+}
+
+progress::-webkit-progress-bar{
+  background: transparent;
+}
+progress::-moz-progress-bar { 
+  background: #AEAAA6;
+  background-attachment: fixed;
+  border-radius: 30px;
+}
+progress::-webkit-progress-value { 
+  background: #AEAAA6; 
+  background-attachment: fixed;
+  border-radius: 30px;
 }
 
 .intro {
@@ -125,26 +147,29 @@ img {
   color: #AEAAA6;
 }
 
-.sezL, .sezR{
+.sezL,
+.sezR {
   width: 100%;
   height: 100vh;
-  display:flex; 
+  display: flex;
   color: #AEAAA6;
 
 }
 
-.sezL h1, .sezR h1{
+.sezL h1,
+.sezR h1 {
   font-family: TASA-DB;
-  
+
 }
 
-.sezL p, .sezR p{
+.sezL p,
+.sezR p {
   font-family: TASA-R;
 }
 
-.sezL_left{
-  width:65%;
-  height:100%;
+.sezL_left {
+  width: 65%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -152,7 +177,7 @@ img {
   gap: 5%;
 }
 
-.sezL_left h1{
+.sezL_left h1 {
 
 
   text-align: right;
@@ -160,7 +185,7 @@ img {
   padding-right: 10%;
 }
 
-.sezL_left p{
+.sezL_left p {
 
   font-size: 1.8em;
   text-align: justify;
@@ -168,22 +193,22 @@ img {
   margin-left: 5%;
 }
 
-.sezL_right{
-  width:35%;
-  height:100%;
+.sezL_right {
+  width: 35%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
 
-.sezL img{
+.sezL img {
   width: 100%;
 }
 
-.sezR_right{
-  width:65%;
-  height:100%;
+.sezR_right {
+  width: 65%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -191,7 +216,7 @@ img {
   gap: 5%;
 }
 
-.sezR_right h1{
+.sezR_right h1 {
 
 
   text-align: left;
@@ -199,7 +224,7 @@ img {
   padding-left: 10%;
 }
 
-.sezR_right p{
+.sezR_right p {
 
   font-size: 1.8em;
   text-align: justify;
@@ -207,15 +232,15 @@ img {
   margin-right: 5%;
 }
 
-.sezR_left{
-  width:35%;
-  height:100%;
+.sezR_left {
+  width: 35%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
 
-.sezR img{
+.sezR img {
   width: 100%;
 }
