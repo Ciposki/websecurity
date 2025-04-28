@@ -193,33 +193,17 @@ for (let i =0;i<6;i++){
 
 window.onscroll = function() {progress()
 
-let crittografia_title= document.querySelector(".sez_center").querySelectorAll("h1");
+let crittografia_title= document.querySelector(".sez_center").querySelector("h1");
 
 let done=false;
 
-ScrollTrigger.create({
-  trigger: crittografia_title,
-  start: "top bottom-=350",
-  end: "+=1", 
-  onUpdate: self => {
+  crittografia_title.addEventListener("click",function(){
     if (done==false){
+    gsap.to(crittografia_title,{scrambleText: "La Crittografia",duration:5})
     done=true;
-    gsap.to(crittografia_title, {  
-  duration: 5, 
-  scrambleText: "La Crittografia",
-  rightToLeft:"true",
-});
+    console.log(done)
     }
-    
-  }
-});
-
-
-
-
-
-
-
+  });
 
 
 
