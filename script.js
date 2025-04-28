@@ -2,18 +2,18 @@
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  const titlesResize = document.querySelectorAll('.sez h1')
-  titlesResize.forEach(title => (
-      fitText(title)
-  ))
-
-  let nav = document.querySelector(".nav")
 
   gsap.registerPlugin(ScrollTrigger)
   gsap.registerPlugin(MotionPathPlugin) 
 
 
 
+  const titlesResize = document.querySelectorAll('.sez h1')
+  titlesResize.forEach(title => (
+      fitText(title)
+  ))
+
+  let nav = document.querySelector(".nav")
   let titles = document.querySelector(".title").querySelectorAll("h1");
   let subtitle = document.querySelector(".subtitle");
   console.log
