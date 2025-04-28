@@ -13,7 +13,11 @@
   src: url(xternal/TASAOrbiterDisplay-Regular-BF64891cba1d563.otf);
 }
 
-
+.line{
+  width: 90%;
+  height: 0.2vh;
+  background-color: #131416;
+}
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -44,7 +48,7 @@ ul {
 }
 
 div {
-     border: solid 1px red; 
+     /*border: solid 1px red; */
 }
 
 ol,
@@ -172,6 +176,10 @@ progress::-webkit-progress-value {
   height: 150vh;
   display: flex;
   padding-right: 5%;
+}
+
+.list_container_RIGHT_CONTAINER .line{
+  background-color: #535350;
 }
 
 .list_container_RIGHT_CONTAINER{
@@ -319,3 +327,77 @@ ol {
 }
 
 
+.sez_center{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /*padding-right: 5%;*/
+}
+
+
+.sez_center h1{
+  text-align: center;
+  font-size: 8em;
+  padding-left: 5%;
+  padding-top: 7%;
+}
+
+.sez_center h2{
+  font-family: TASA-DSB;
+  text-align: center;
+  font-size: 5em;
+  color: #AEAAA6;
+}
+
+.sez_center p{
+  font-size: 1.8em;
+  margin-right: 5%;
+  margin-left: 5%;
+  text-align: justify;
+  margin-top: 1.5%;
+}
+
+.cifrari_holder{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.cifrario{
+  width: 100%;
+  height: 65vh;
+  background-color: #F18010;
+   display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.cifrario h2{
+  font-family: TASA-DB;
+  color: #131416;
+  text-align: justify;
+  margin-top: 40px;
+  font-size: 5.3em;
+}
+
+.cifrario p{
+  color: #131416;
+    font-size: 1.8em;
+    text-align: right;
+     margin-right: 0%;
+  margin-left: 0%;
+  margin-top: 0%;
+
+}
+
+.cifrario_box{
+  width: 32%;
+  height: 66vh;
+  display: flex;
+}
+.cifrario_shadow{
+  width: 1%;
+  height: 65vh;
+  background-color: #6b4621;
+}

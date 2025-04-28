@@ -183,7 +183,27 @@ for (let i =0;i<6;i++){
 
  });
 
-window.onscroll = function() {progress()};
+window.onscroll = function() {progress()
+
+let crittografia_title= document.querySelector(".sez_center").querySelectorAll("h1");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+};
 
 function progress() {
   var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
