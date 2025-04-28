@@ -44,7 +44,7 @@ ul {
 }
 
 div {
-  /*   border: solid 1px red; */
+     border: solid 1px red; 
 }
 
 ol,
@@ -147,8 +147,7 @@ progress::-webkit-progress-value {
   color: #AEAAA6;
 }
 
-.sezL,
-.sezR {
+.sez {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -156,15 +155,64 @@ progress::-webkit-progress-value {
 
 }
 
-.sezL h1,
-.sezR h1 {
+.sez h1 {
   font-family: TASA-DB;
 
 }
 
-.sezL p,
-.sezR p {
+.sez p {
   font-family: TASA-R;
+}
+
+.sez_list_right{
+  width: 100%;
+  height: 150vh;
+  display: flex;
+  padding-right: 5%;
+}
+
+.list_container_RIGHT_CONTAINER{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items:flex-start;
+  flex-direction: column;
+  justify-content:end;
+  overflow: hidden;
+  
+}
+
+
+.list_elements{
+  display: flex;
+}
+.sez_list_right h1{
+  text-align: left;
+  font-size: 8em;
+  padding-left: 5%;
+  padding-top: 7%;
+}
+
+.sez_list_right h2{
+  font-family: TASA-DSB;
+  text-align: left;
+  font-size: 5em;
+  color: #AEAAA6;
+}
+.sez_list_right h2:hover{
+  color: #F18010;
+}
+.sez_list_right p{
+  font-size: 1.8em;
+  /*margin-right: 5%;*/
+  text-align: left;
+}
+
+.square{
+  height: 50px;
+  width: 50px;
+  background-color: #F18010;
+  
 }
 
 .sezL_left {
@@ -244,3 +292,5 @@ progress::-webkit-progress-value {
 .sezR img {
   width: 100%;
 }
+
+
