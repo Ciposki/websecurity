@@ -10,9 +10,10 @@
 </head>
 
 <body>
+
   <div class="nav">
     <h3>Sium Company</h3>
-    <progress value="1" max="100"></progress>
+    <progress id="myBar" value="1" max="100"></progress>
     <h3>BOH</h3>
   </div>
 
@@ -27,7 +28,7 @@
     </div>
   </div>
 
-  <div class="sezL">
+  <div class="sez sezL">
     <div class="sezL_left">
       <h1>SICUREZZA E CRITTOGRAFIA</h1>
       <p>
@@ -45,7 +46,7 @@
     </div>
   </div>
 
-  <div class="sezR">
+  <div class="sez sezR">
 
     <div class="sezR_left">
       <img
@@ -54,15 +55,14 @@
     </div>
 
     <div class="sezR_right">
-      <h1>SICUREZZA E CRITTOGRAFIA</h1>
+      <h1>Come proteggersi da queste minacce?</h1>
       <p>
-        Internet è parte integrante della nostra vita quotidiana: lavoriamo, effettuiamo pagamenti, gestiamo
-        informazioni personali e aziendali online. Proteggere dispositivi e dati da accessi non autorizzati è
-        essenziale, sia a livello personale che aziendale. Vulnerabilità come sistemi non aggiornati, password deboli e
-        disattenzioni degli utenti possono esporre i sistemi ad attacchi informatici.
-        La sicurezza informatica mira a prevenire questi attacchi, impiegando normative, tecniche, dispositivi e
-        protocolli per salvaguardare persone, dati e infrastrutture.</p>
-
+      <ol>               
+        <li>Segretezza:</li>solo mittente e destinatario possono leggere i dati.
+        <li>Autenticazione:</li>conferma dell’identità di chi comunica.
+        <li>Integrità:</li>garanzia che i dati non siano stati alterati.
+      </ol>
+      </p>
     </div>
   </div>
 
@@ -72,7 +72,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
-
+  <script src="fitText.js"></script>
 </body>
 
 </html>

@@ -70,6 +70,7 @@ img {
   padding-left: 2em;
   padding-right: 2em;
   mix-blend-mode: difference;
+  z-index: 999;
 }
 
 progress {
@@ -79,16 +80,18 @@ progress {
   height: 2%;
 }
 
-progress::-webkit-progress-bar{
+progress::-webkit-progress-bar {
   background: transparent;
 }
-progress::-moz-progress-bar { 
+
+progress::-moz-progress-bar {
   background: #AEAAA6;
   background-attachment: fixed;
   border-radius: 30px;
 }
-progress::-webkit-progress-value { 
-  background: #AEAAA6; 
+
+progress::-webkit-progress-value {
+  background: #AEAAA6;
   background-attachment: fixed;
   border-radius: 30px;
 }
@@ -165,8 +168,28 @@ progress::-webkit-progress-value {
 .sezL p,
 .sezR p {
   font-family: TASA-R;
+
 }
 
+ol li {
+  counter-increment: muffins;
+  font-family: TASA-DSB;
+  font-size: 5vw;
+
+}
+
+ol li:before {
+  content: counter(muffins) ". ";
+}
+
+ol {
+  list-style: none;
+  counter-reset: muffins;
+  font-size: 2vw;
+
+  width: 80%;
+  font-family: TASA-R;
+}
 .sezL_left {
   width: 65%;
   height: 100%;
