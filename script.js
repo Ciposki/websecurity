@@ -1,10 +1,18 @@
 
+gsap.registerPlugin(ScrollSmoother) 
+
+
+ScrollSmoother.create({
+  smooth: 1,
+  effects: true,
+});
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
 
   gsap.registerPlugin(ScrollTrigger)
   gsap.registerPlugin(MotionPathPlugin) 
+gsap.registerPlugin(ScrambleTextPlugin) 
 
 
 
@@ -187,12 +195,24 @@ window.onscroll = function() {progress()
 
 let crittografia_title= document.querySelector(".sez_center").querySelectorAll("h1");
 
+let done=false;
 
-
-
-
-
-
+ScrollTrigger.create({
+  trigger: crittografia_title,
+  start: "top bottom-=350",
+  end: "+=1", 
+  onUpdate: self => {
+    if (done==false){
+    done=true;
+    gsap.to(crittografia_title, {  
+  duration: 5, 
+  scrambleText: "La Crittografia",
+  rightToLeft:"true",
+});
+    }
+    
+  }
+});
 
 
 
