@@ -2,6 +2,12 @@
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
+  const titlesResize = document.querySelectorAll('.sez h1')
+  titlesResize.forEach(title => (
+      fitText(title)
+  ))
+
+  let nav = document.querySelector(".nav")
 
   gsap.registerPlugin(ScrollTrigger)
   gsap.registerPlugin(MotionPathPlugin) 
@@ -10,7 +16,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   let titles = document.querySelector(".title").querySelectorAll("h1");
   let subtitle = document.querySelector(".subtitle");
-  let nav = document.querySelector(".nav")
+  console.log
   gsap.registerPlugin(ScrollTrigger)
   var startTl = gsap.timeline({defaults: {ease: "expo.out"}})
   
@@ -176,3 +182,12 @@ for (let i =0;i<6;i++){
 
 
  });
+
+window.onscroll = function() {progress()};
+
+function progress() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  document.getElementById("myBar").value = scrolled;
+}
