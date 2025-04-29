@@ -549,11 +549,11 @@ ol {
 
 
 
-.sezfinal_left h1 {
+.sezfinal_left h2 {
 
 
   text-align: right;
-  font-size: 8em;
+  font-size: 7.5em;
   padding-right: 10%;
 }
 
@@ -568,11 +568,11 @@ ol {
 }
 
 
-.sezfinal_right h1 {
+.sezfinal_right h2 {
 
 
   text-align: left;
-  font-size: 8em;
+  font-size: 7.5em;
   padding-left: 10%;
 }
 

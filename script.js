@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
   gsap.registerPlugin(MotionPathPlugin) 
 gsap.registerPlugin(ScrambleTextPlugin)
     gsap.registerPlugin(TextPlugin)
+gsap.registerPlugin(SplitText) 
+
+
 
 
 
@@ -224,6 +227,109 @@ gsap.registerPlugin(ScrambleTextPlugin)
 //     }
 //   });
 // }
+
+//Crittografia Simmetrica Moderna
+gsap.from(".block1", {
+  scrollTrigger: {
+    trigger: ".block1",
+    start: "top bottom-=150",
+    end: "top center-=200",
+    scrub:2
+  },  x: -700,opacity:0,ease: "power4.out"
+});
+gsap.from(".block3", {
+  scrollTrigger: {
+    trigger: ".block3",
+    start: "top bottom-=150",
+    end: "top center-=200",
+    scrub:2
+  },  x: -700,opacity:0,ease: "power4.out"
+});
+gsap.from(".block2", {
+  scrollTrigger: {
+    trigger: ".block2",
+    start: "top bottom-=150",
+    end: "top center-=200",
+    scrub:2
+  },  x: +700,opacity:0,ease: "power4.out"
+});
+gsap.from(".block4", {
+  scrollTrigger: {
+    trigger: ".block4",
+    start: "top bottom-=150",
+    end: "top center-=200",
+    scrub:2
+  },  x: +700,opacity:0,ease: "power4.out"
+});
+
+var split = new SplitText(".animate_title", {type: "chars"});
+gsap.from(split.chars, {
+scrollTrigger: {
+    trigger: ".sezfinal",
+    start: "top bottom",
+    scrub:false
+  },
+
+  duration: 1, 
+  y: 100, 
+  autoAlpha: 0, 
+  stagger: 0.05,
+  ease: "power4.inOut" 
+});
+var split2 = new SplitText(".animatep", { type: "words" });
+gsap.from(split2.words, {
+scrollTrigger: {
+    trigger: ".sezfinal",
+    start: "top bottom",
+    scrub:false
+  },
+  duration: 1, 
+  x: 300, 
+  ease: "power4.inOut",
+  autoAlpha: 0, 
+  stagger: 0.05,
+});
+
+
+var split3 = new SplitText(".tanim", { type: "lines" });
+gsap.from(split3.lines, {
+scrollTrigger: {
+    trigger: ".tanim",
+    start: "top bottom",
+    scrub:false
+  },
+  duration: 2, 
+  y: 300, 
+  ease: "power4.inOut",
+  autoAlpha: 0, 
+  stagger: 1,
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
  });
