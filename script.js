@@ -307,6 +307,35 @@ scrollTrigger: {
 
 
 
+var split4 = new SplitText(".leftanim", { type: "chars" });
+
+gsap.from(split4.chars, {
+scrollTrigger: {
+    trigger: ".leftanim",
+    start: "top bottom",
+    scrub:false
+  },
+  duration: 1, 
+  scaleY: 0, 
+  ease: "power4.inOut",
+  stagger: 0.03,
+});
+
+var split5 = new SplitText(".ranim", { type: "chars" });
+
+gsap.from(split5.chars, {
+scrollTrigger: {
+    trigger: ".ranim",
+    start: "top bottom",
+    scrub:false
+  },
+  duration: 1, 
+  scaleY: 0, 
+  ease: "power4.inOut",
+  stagger: 0.03,
+});
+
+
 
 
 
