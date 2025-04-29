@@ -16,10 +16,10 @@ gsap.registerPlugin(ScrambleTextPlugin)
 
 
   const titlesResize = document.querySelectorAll('.sez h1')
+  
   titlesResize.forEach(title => (
       fitText(title)
   ))
-
   let nav = document.querySelector(".nav")
   let titles = document.querySelector(".title").querySelectorAll("h1");
   let subtitle = document.querySelector(".subtitle");
