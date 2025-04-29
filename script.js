@@ -25,13 +25,12 @@ gsap.registerPlugin(ScrambleTextPlugin)
   let subtitle = document.querySelector(".subtitle");
   console.log
   gsap.registerPlugin(ScrollTrigger)
-  var startTl = gsap.timeline({defaults: {ease: "expo.out"}})
-  
-
+  var startTl = gsap.timeline({defaults: {ease: "expo.out"}}).set(document.body, { overflow: "hidden" })
   startTl.fromTo(titles[0],{x:"-120%"},{duration:1,x:0,delay:0.3})
   startTl.fromTo(titles[1],{x:"100%"},{duration:1,x:0},">-0.8")
   startTl.fromTo(nav,{y:"-100%"},{duration:1,y:0},">-0.2")
-  startTl.fromTo(subtitle, {opacity:0}, {duration:1.5,opacity:1},">-0.6")
+  startTl.fromTo(subtitle, {opacity:0}, {duration:1.5,opacity:1},">-0.6").set(document.body, { overflow: "auto" });
+
   var rmTit = gsap.timeline({
     scrollTrigger:{
       trigger: '.intro',
@@ -39,20 +38,23 @@ gsap.registerPlugin(ScrambleTextPlugin)
       start:"top top",
       end: "+=1000",
       scrub:true,
+      fastScrollEnd: 3000,
       snap:{
         snapTo:  'labels',
         duration:{min:0.2, max: 5},
         delay:0.2,
         ease: 'sine.out'
       }
-    }
+    },
+    duration:0.5
   })
   
   rmTit.addLabel("rm")
   .to(titles[0],{x:"-120%",delay:0.3})
   .to(titles[1],{x:"100%"},">-25%")
   .to(subtitle,{scale:0,rotation:180,opacity:0})
-  
+  .addLabel("end")
+ 
   const leftSlides=document.querySelectorAll(".sezL")
   const leftTitles=document.querySelectorAll(".h1_L")
   const leftP=document.querySelectorAll(".p_L")
@@ -79,6 +81,7 @@ gsap.registerPlugin(ScrambleTextPlugin)
       .fromTo(leftTitles[index],{x:"-120%"},{x:0})
       .fromTo(leftP[index],{y:"100%"},{y:"0"},">-25%")
       .fromTo(leftImg[index],{x:"120%"},{x:0},">-50%")
+      .addLabel("end")
   }
 
   leftSlides.forEach(addTimelineLeft)
@@ -108,6 +111,7 @@ gsap.registerPlugin(ScrambleTextPlugin)
       .fromTo(rightTitles[index],{x:"120%"},{x:0})
       .fromTo(rightP[index],{y:"100%"},{y:"0"},">-25%")
       .fromTo(rightImg[index],{x:"-120%"},{x:0},">-50%")
+      .addLabel("end")
   }
 
   rightSlides.forEach(addTimelineRight) 
@@ -137,45 +141,48 @@ gsap.registerPlugin(ScrambleTextPlugin)
   
 
   listTimeline.addLabel('square')
-    .fromTo(".titleList",{x:"-120%"},{x:0})
+    .fromTo(".titleList",{x:"-120%"},{x:0, duration:2})
     .fromTo('.square',{scale:"0", rotation:"0"},{scale:"0.75",rotation:"45"})
     .fromTo('.list_container_RIGHT_CONTAINER',{opacity:0,paddingTop:"30%",y:"0%"},{opacity:"1",paddingTop:"0"})
     .addLabel("seeSection1")
     .fromTo(danger_title[0],{fontSize:"5em",opacity:"0.3",color:"#AEAAA6"},{fontSize:"3em",duration:2,opacity:"1",color:"#F18010"})
     .fromTo(danger_text[0], {text:""},{text:"Malware che danneggiano o rallentano i sistemi.",duration:1.5})
-    .to('.list_container_RIGHT_CONTAINER',{y:"-20vh"})
     .addLabel("seeSection2")
+    .to('.list_container_RIGHT_CONTAINER',{y:"-20vh"})
     .to(danger_text[0],{text:""})
-    .to(danger_title[0],{fontsize:"5em",opacity:0.3,color:"#AEAAA6"})
+    .to(danger_title[0],{fontSize:"5em",opacity:0.3,color:"#AEAAA6"})
     .fromTo(danger_title[1],{fontSize:"5em",opacity:"0.3",color:"#AEAAA6"},{fontSize:"3em",duration:2,opacity:"1",color:"#F18010"})
-    .fromTo(danger_text[1], {text:""},{text:"Software maligno che raccoglie informazioni senza autorizzazione.",duration:1.5})
-    .to('.list_container_RIGHT_CONTAINER',{y:"-40vh"})    
+    .fromTo(danger_text[1], {text:""},{text:"Software maligno che raccoglie informazioni senza autorizzazione.",duration:1.5}) 
     .addLabel("seeSection3")
+    .to('.list_container_RIGHT_CONTAINER',{y:"-40vh"})   
     .to(danger_text[1],{text:""})
-    .to(danger_title[1],{fontsize:"5em",opacity:0.3,color:"#AEAAA6"})
+    .to(danger_title[1],{fontSize:"5em",opacity:0.3,color:"#AEAAA6"})
     .fromTo(danger_title[2],{fontSize:"5em",opacity:"0.3",color:"#AEAAA6"},{fontSize:"3em",duration:2,opacity:"1",color:"#F18010"})
-    .fromTo(danger_text[2], {text:""},{text:"Attacco su vulnerabilità sconosciute agli sviluppatori.",duration:1.5})
-    .to('.list_container_RIGHT_CONTAINER',{y:"-60vh"})    
+    .fromTo(danger_text[2], {text:""},{text:"Attacco su vulnerabilità sconosciute agli sviluppatori.",duration:1.5}) 
     .addLabel("seeSection4")
+    .to('.list_container_RIGHT_CONTAINER',{y:"-60vh"})   
     .to(danger_text[2],{text:""})
-    .to(danger_title[2],{fontsize:"5em",opacity:0.3,color:"#AEAAA6"})
+    .to(danger_title[2],{fontSize:"5em",opacity:0.3,color:"#AEAAA6"})
     .fromTo(danger_title[3],{fontSize:"5em",opacity:"0.3",color:"#AEAAA6"},{fontSize:"3em",duration:2,opacity:"1",color:"#F18010"})
     .fromTo(danger_text[3], {text:""},{text:"Attacco che blocca un servizio saturando server o rete con traffico eccessivo.",duration:1.5})
-    .to('.list_container_RIGHT_CONTAINER',{y:"-80vh"})
     .addLabel("seeSection5")
+    .to('.list_container_RIGHT_CONTAINER',{y:"-80vh"})
     .to(danger_text[3],{text:""})
-    .to(danger_title[3],{fontsize:"5em",opacity:0.3,color:"#AEAAA6"})
+    .to(danger_title[3],{fontSize:"5em",opacity:0.3,color:"#AEAAA6"})
     .fromTo(danger_title[4],{fontSize:"5em",opacity:"0.3",color:"#AEAAA6"},{fontSize:"3em",duration:2,opacity:"1",color:"#F18010"})
     .fromTo(danger_text[4], {text:""},{text:"Accesso illecito ai dati, passivo se limitato alla lettura, attivo se comporta modifica.",duration:1.5})
-    .to('.list_container_RIGHT_CONTAINER',{y:"-100vh"})
     .addLabel("seeSection6")
+    .to('.list_container_RIGHT_CONTAINER',{y:"-100vh"})
     .to(danger_text[4],{text:""})
-    .to(danger_title[4],{fontsize:"5em",opacity:0.3,color:"#AEAAA6"})
+    .to(danger_title[4],{fontSize:"5em",opacity:0.3,color:"#AEAAA6"})
     .fromTo(danger_title[5],{fontSize:"5em",opacity:"0.3",color:"#AEAAA6"},{fontSize:"3em",duration:2,opacity:"1",color:"#F18010"})
     .fromTo(danger_text[5], {text:""},{text:"Attacco effettuato tramite phishing o bruteforce, finalizzato al furto d'identità.",duration:1.5})
+    .addLabel("close")
     .to('.list_container_RIGHT_CONTAINER',{y:"-120vh"})
-    .addLabel("end")
     .to(".square", {scale:0,rotation:0})
+    .addLabel("end")
+
+    
 
     
   
