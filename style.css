@@ -526,3 +526,63 @@ ol {
 .img_holder{
   height:20vh;
 }
+
+.sezfinal_left {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+}
+.sezfinal_right {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+}
+
+
+
+
+.sezfinal_left h1 {
+
+
+  text-align: right;
+  font-size: 8em;
+  padding-right: 10%;
+}
+
+
+
+.sezfinal_left p {
+
+  font-size: 1.8em;
+  text-align: justify;
+  padding-right: 20%;
+  margin-left: 5%;
+}
+
+
+.sezfinal_right h1 {
+
+
+  text-align: left;
+  font-size: 8em;
+  padding-left: 10%;
+}
+
+
+
+.sezfinal_right p {
+
+  font-size: 1.8em;
+  text-align: justify;
+  padding-left: 20%;
+  padding-right: 5%;
+}
+
