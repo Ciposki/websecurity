@@ -604,3 +604,39 @@ ol {
   padding-right: 5%;
 }
 
+
+.sez_center_new {
+  width: 100%;
+  height: 170vh;
+  display: flex;
+  flex-direction: column;
+  /*padding-right: 5%;*/
+  height: 100vh;
+}
+.sez_center_new p {
+  font-size: 1.8em; margin-right: 5%;
+  margin-left: 5%;
+  text-align: justify;
+
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  
+}
+
+
+.sez_center_new h1 {
+  text-align: center;
+  font-size: 8em;
+  padding-left: 5%;
+  padding-top: 7%;
+}
+
+
+
+.sez_center_new h2 {
+  font-family: TASA-DSB;
+  text-align: center;
+  font-size: 5em;
+  color: #AEAAA6;
+}
