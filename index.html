@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 
   <title>Sicurezza delle reti</title>
 </head>
@@ -117,50 +118,70 @@
         </div>
       </div>
 
+  <div class="sez sez_center">
 
-      <div class="sez sez_center">
-        <h1>At%$!Hj'-c4S</h1>
-        <p>La crittografia (dal greco <em>kryptós</em> = “nascosto”, <em>graphía</em> = “scrittura”) trasforma i
-          messaggi in crittogrammi illeggibili senza autorizzazione.
-          Il <code>plaintext</code> si trasforma in <code>ciphertext</code> grazie a una o più chiavi, che devono
-          rimanere segrete per mantenere private le comunicazioni anche su canali pubblici.</p>
-        </p>
-        <h2>Cifrari Storici</h2>
-        <div class="cifrari_holder">
+    
+    <h1>At%$!Hj'-c4S</h1>
+    <p>La crittografia (dal greco <em>kryptós</em> = “nascosto”, <em>graphía</em> = “scrittura”) trasforma i messaggi in crittogrammi illeggibili senza autorizzazione.  
+  Il <code>plaintext</code> si trasforma in <code>ciphertext</code> grazie a una o più chiavi, che devono rimanere segrete per mantenere private le comunicazioni anche su canali pubblici.</p>
+<h2>Cifrari Storici</h2>
+<div class="cifrari_holder">
+  <div class="cifrario">
+    <img
+        src="substitution.png"
+        alt="">
+    <h2>CIFRARIO A SOSTITUZIONE</h2>
+    <div class="line"></div>
+     <p>Sostituisce ogni carattere alfabetico. <br>Un esempio è il cifrario di Cesare.</p>
 
-
-          <div class="cifrario_box">
-            <div class="cifrario">
-              <img src="substitution.png" alt="">
-              <h2>CIFRARIO A SOSTITUZIONE</h2>
-              <div class="line"></div>
-              <p>Sostituisce ogni carattere alfabetico. <br>Un esempio è il cifrario di Cesare.</p>
-
-            </div>
-            <div class="cifrario_shadow"></div>
-          </div>
+  </div>
 
 
 
-          <div class="cifrario_box">
-            <div class="cifrario">
-              <img src="transposition.png" alt="">
-              <h2>CIFRARIO A TRASPOSIZIONE</h2>
-              <div class="line"></div>
-              <p>Permuta l'insieme di caratteri.</p>
-
-            </div>
-            <div class="cifrario_shadow"></div>
-          </div>
-
+  <div class="cifrario">
+    <img
+        src="transposition.png"
+        alt="">
+    <h2>CIFRARIO A TRASPOSIZIONE</h2>
+    <div class="line"></div>
+    <p>Permuta l'insieme di caratteri.</p>
+    
+  </div>
 
 
+</div>
+<p>Entrambe richiedono una chiave comune tra mittente e destinatario (crittografia simmetrica), ma sono vulnerabili ad analisi e attacchi.</p>
+</div>
 
+    <div class="sez_left_and_right sez">
+    
+      <h1>Crittografia Simmetrica Moderna</h1>
+      <p class="introtext">
+        Oggi, per aumentare la sicurezza rispetto ai metodi storici si utilizzano cifrari a blocchi. Questi algoritmi operano non sui singoli caratteri, ma su interi blocchi di bit (tipicamente da 64 o 128 bit), rendendo molto più difficile l'analisi e la violazione dei messaggi cifrati.
+      </p><div class="left_and_right_text">
+        <div class="left_and_right_block Lblock"><h2>DES (Data Encryption Standard):</h2><p>inventata negli anni '70, lavora su blocchi di 64 bit con una chiave effettiva di 56 bit. Oggi è considerato insicuro a causa della brevità della chiave, che può essere violata con attacchi a forza bruta.</p></div>
+        <div class="left_and_right_block Rblock"><h2>3DES (Triple DES):</h2><p>versione potenziata del DES, applica il processo di cifratura tre volte con tre chiavi diverse.</p></div>
+        <div class="left_and_right_block Lblock"><h2>AES (Advanced Encryption Standard):</h2><p>utilizza chiavi di 128, 192 o 256 bit e lavora su blocchi di 128 bit. </p></div>
+        <div class="left_and_right_block Rblock"><h2>IDEA (International Data Encryption Algorithm):</h2><p>lavora su blocchi di 64 bit con chiavi di 128 bit.</p></div>
         </div>
-        <p>Entrambe richiedono una chiave comune tra mittente e destinatario (crittografia simmetrica), ma sono
-          vulnerabili ad analisi e attacchi.</p>
-      </div>
-      <div class="workaround"></div>
+    </div>
+    
+  <div class="sezL sez">
+      <h1>Scambio di Chiavi di Diffie-Hellman</h1>
+      <p>
+      La crittografia simmetrica richiede che mittente e destinatario conoscano la stessa chiave segreta. Ma come scambiarsi la chiave in modo sicuro su un canale potenzialmente intercettato? Diffie e Hellman idearono un metodo che permette a due persone di creare una chiave segreta condivisa anche se comunicano attraverso un canale pubblico insicuro.
+<br>Come funziona?<br>
+      Alice sceglie un numero g generatore di p. g è generatore di p se elevato alle sue potenze naturali può generare qualsiasi numero tra 1 e p-1 modulo p. Questo è necessario per poter resistere a potenziali attacchi brute-force.
+      Alice sceglie un numero segreto a.
+      Calcola \(A=g^a mod p\). Da A è computazionalmente impossibile ricavare a a causa del problema del logaritmo discreto.
+      Alice invia A, g e p a Bob, che sceglie un numero segreto b.
+      Bob calcola B=g^b mod p.
+      Invia B ad Alice. 
+      La chiave di Alice è K=B^a mod p, la chiave di Bob è K=A^b mod p. 
+      Per le proprietà delle potenze è possibile dimostrare che queste due chiavi sono identiche.
+      
+      </p>
+    </div>
     </div>
   </div>
 
