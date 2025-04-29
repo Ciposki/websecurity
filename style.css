@@ -26,6 +26,10 @@ html {
 
 }
 
+b{
+    color: #F18010;
+}
+
 *,
 *:before,
 *:after {
@@ -49,7 +53,7 @@ ul {
 }
 
 div {
-  border: solid 1px red; 
+/*   border: solid 1px red;  */
 }
 
 .workaround {
