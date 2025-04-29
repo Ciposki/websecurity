@@ -607,7 +607,6 @@ ol {
   display: flex;
   flex-direction: column;
   /*padding-right: 5%;*/
-  height: 100vh;
 }
 .sez_center_new p {
   font-size: 1.8em; margin-right: 5%;
