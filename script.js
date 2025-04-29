@@ -34,30 +34,7 @@ gsap.registerPlugin(SplitText)
   startTl.fromTo(nav,{y:"-100%"},{duration:1,y:0},">-0.2")
   startTl.fromTo(subtitle, {opacity:0}, {duration:1.5,opacity:1},">-0.6").set(document.body, { overflow: "auto" });
 
-  var rmTit = gsap.timeline({
-    scrollTrigger:{
-      trigger: '.intro',
-      pin:true,
-      start:"top top",
-      end: "+=1000",
-      scrub:true,
-      fastScrollEnd: 3000,
-      snap:{
-        snapTo:  'labels',
-        duration:{min:0.2, max: 5},
-        delay:0.2,
-        ease: 'sine.out'
-      }
-    },
-    duration:0.5
-  })
   
-  rmTit.addLabel("rm")
-  .to(titles[0],{x:"-120%",delay:0.3})
-  .to(titles[1],{x:"100%"},">-25%")
-  .to(subtitle,{scale:0,rotation:180,opacity:0})
-  .addLabel("end")
- 
   const leftSlides=document.querySelectorAll(".sezL")
   const leftTitles=document.querySelectorAll(".h1_L")
   const leftP=document.querySelectorAll(".p_L")
@@ -185,56 +162,6 @@ gsap.registerPlugin(SplitText)
     .to(".square", {scale:0,rotation:0})
     .addLabel("end")
 
-    
-
-    
-  
-
-// gsap.to(".square", {
-//   scrollTrigger: {
-//     trigger: ".square",
-//       start: "top bottom-=350",
-//       end: "+=300", 
-//       scrub: 1
-//   },
-//   motionPath: [
-//     {scale:"0",rotation:"0"},
-//     { scale: "0.75", rotation: "45" }
-//   ],
-//   delay: 0.5,
-//   ease: "power4.inOut" 
-// });
-//
-// //once again i have to suffer
-// for (let i =0;i<6;i++){
-//   gsap.to(danger_title[i], {
-//     motionPath: {
-//       path: [{x:1920,y:0,opacity:-5},{x: 0,y:0,opacity:1}], // straight down 500px
-//
-//     },
-//     ease: "power3.inOut",
-//     scrollTrigger: {
-//       trigger: danger_title[i],
-//       start: "top bottom-=70",
-//       end: "+=800", // 500px of scroll
-//       scrub: 0.5
-//     }
-//   });
-//   gsap.to(danger_text[i], {
-//     motionPath: {
-//       path: [{x:1920,y:0,opacity:-5},{x: 0,y:0,opacity:1}], // straight down 500px
-//
-//     },
-//     ease: "power3.inOut",
-//     scrollTrigger: {
-//       trigger: danger_text[i],
-//       start: "top bottom-=70",
-//       end: "+=400", // 500px of scroll
-//       scrub: 0.5
-//     }
-//   });
-// }
-
 //Crittografia Simmetrica Moderna
 gsap.from(".block1", {
   scrollTrigger: {
@@ -342,6 +269,39 @@ scrollTrigger: {
   stagger: 0.03,
 });
 
+  
+ 
+
+
+  let crittografia_title= document.querySelector(".sez_center").querySelector("h1");
+
+  const slideCI = gsap.timeline({
+        scrollTrigger:{
+          trigger: ".sez_center",
+          pin:true,
+          start:"top top",
+          end: "+=5000",
+          scrub:true,
+          snap:{
+            snapTo:  'labels',
+            duration:{min:0.2, max: 5},
+            delay:1,
+            ease: 'sine.out'
+          }
+        }
+      })
+      .addLabel("First")
+      .fromTo(".top",{x:"-120%",opacity:0},{x:0,opacity:1})
+      .to(crittografia_title,{scrambleText:"La Crittografia",duration:3.5})
+      .addLabel("Second")
+      .to(".top",{x:"120%"})
+      .fromTo(".middle",{x:"-120%",opacity:0,paddingTop:"5%"},{x:0,opacity:1})
+      .addLabel("remove")
+      .to(".middle",{x:"120%",delay:1})
+      .addLabel("End")
+      .set(".middle",{opacity:0})
+      .set(".top",{opacity:0})
+
 
 
 
@@ -370,19 +330,9 @@ scrollTrigger: {
 
  });
 
-window.onscroll = function() {progress()
+window.onscroll = function() {
+  progress()
 
-let crittografia_title= document.querySelector(".sez_center").querySelector("h1");
-
-let done=false;
-
-  crittografia_title.addEventListener("click",function(){
-    if (done==false){
-    gsap.to(crittografia_title,{scrambleText: "La Crittografia",duration:5})
-    done=true;
-    console.log(done)
-    }
-  });
 
 
 
