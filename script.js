@@ -1,7 +1,5 @@
 
 gsap.registerPlugin(ScrollSmoother) 
-
-
 ScrollSmoother.create({
   smooth: 1,
   effects: true,
@@ -12,7 +10,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   gsap.registerPlugin(ScrollTrigger)
   gsap.registerPlugin(MotionPathPlugin) 
-gsap.registerPlugin(ScrambleTextPlugin) 
+gsap.registerPlugin(ScrambleTextPlugin)
+    gsap.registerPlugin(TextPlugin)
 
 
 
@@ -38,8 +37,8 @@ gsap.registerPlugin(ScrambleTextPlugin)
   let danger_text=document.querySelector(".sez_list_right").querySelectorAll("p");
   //I'm adding another gsap timeline so I can do stuff with the easing functions
   var expanim=gsap.timeline({defaults: {ease: "expo.out"}})
-  gsap.set(danger_text,{scaleY:"0",x:1920})
-  gsap.set(danger_title,{yPercent:"+40",x:1920,opacity:"0"});
+  // gsap.set(danger_text,{scaleY:"0",x:1920})
+  // gsap.set(danger_title,{yPercent:"+40",x:1920,opacity:"1"});
   gsap.set(".square",{scale:0})
 
 
@@ -130,63 +129,123 @@ gsap.registerPlugin(ScrambleTextPlugin)
 
     }
   });
-    gsap.to(".square", {
-    motionPath: {
-      path: [{x: 0, y: 1450}], // straight down 500px
-
-    },
-    ease: "sine.in",
-    scrollTrigger: {
-      trigger: ".square",
-      start: "top center+=100",
-      end: "+=1450", 
-      scrub: 0.6
+  //   gsap.to(".square", {
+  //   motionPath: {
+  //     path: [{x: 0, y: 1450}], // straight down 500px
+  //
+  //   },
+  //   ease: "sine.in",
+  //   scrollTrigger: {
+  //     trigger: ".square",
+  //     start: "top center+=100",
+  //     end: "+=1450", 
+  //     scrub: 0.6
+  //   }
+  // });
+  let listTimeline  = gsap.timeline({
+    scrollTrigger:{
+      trigger: '.sez_list_right',
+      pin:true,
+      start:"top top",
+      end: "+=8000",
+      scrub:true,
+      snap:{
+        snapTo:  'labels',
+        duration:{min:0.2, max: 5},
+        delay:0.5,
+        ease: 'sine.out'
+      }
     }
-  });
-gsap.to(".square", {
-  scrollTrigger: {
-    trigger: ".square",
-      start: "top bottom-=350",
-      end: "+=300", 
-      scrub: 1
-  },
-  motionPath: [
-    {scale:"0",rotation:"0"},
-    { scale: "0.75", rotation: "45" }
-  ],
-  delay: 0.5,
-  ease: "power4.inOut" 
-});
+  })
+  
 
-//once again i have to suffer
-for (let i =0;i<6;i++){
-  gsap.to(danger_title[i], {
-    motionPath: {
-      path: [{x:1920,y:0,opacity:-5},{x: 0,y:0,opacity:1}], // straight down 500px
+  listTimeline.addLabel('square')
+    .fromTo('.square',{scale:"0", rotation:"0"},{scale:"0.75",rotation:"45"})
+    .fromTo('.list_container_RIGHT_CONTAINER',{opacity:0,paddingTop:"30%",y:"0%"},{opacity:"1",paddingTop:"0"})
+    .addLabel("seeSection1")
+    .fromTo(danger_title[0],{fontSize:"5em",opacity:"0.3",color:"#AEAAA6"},{fontSize:"3em",duration:2,opacity:"1",color:"#F18010"})
+    .fromTo(danger_text[0], {text:""},{text:"Malware che danneggiano o rallentano i sistemi.",duration:1.5})
+    .to('.list_container_RIGHT_CONTAINER',{y:"-20vh"})
+    .addLabel("seeSection2")
+    .to(danger_text[0],{text:""})
+    .to(danger_title[0],{fontsize:"5em",opacity:0.3,color:"#AEAAA6"})
+    .fromTo(danger_title[1],{fontSize:"5em",opacity:"0.3",color:"#AEAAA6"},{fontSize:"3em",duration:2,opacity:"1",color:"#F18010"})
+    .fromTo(danger_text[1], {text:""},{text:"Software maligno che raccoglie informazioni senza autorizzazione.",duration:1.5})
+    .to('.list_container_RIGHT_CONTAINER',{y:"-40vh"})    
+    .addLabel("seeSection3")
+    .to(danger_text[1],{text:""})
+    .to(danger_title[1],{fontsize:"5em",opacity:0.3,color:"#AEAAA6"})
+    .fromTo(danger_title[2],{fontSize:"5em",opacity:"0.3",color:"#AEAAA6"},{fontSize:"3em",duration:2,opacity:"1",color:"#F18010"})
+    .fromTo(danger_text[2], {text:""},{text:"Attacco su vulnerabilità sconosciute agli sviluppatori.",duration:1.5})
+    .to('.list_container_RIGHT_CONTAINER',{y:"-60vh"})    
+    .addLabel("seeSection4")
+    .to(danger_text[2],{text:""})
+    .to(danger_title[2],{fontsize:"5em",opacity:0.3,color:"#AEAAA6"})
+    .fromTo(danger_title[3],{fontSize:"5em",opacity:"0.3",color:"#AEAAA6"},{fontSize:"3em",duration:2,opacity:"1",color:"#F18010"})
+    .fromTo(danger_text[3], {text:""},{text:"Attacco che blocca un servizio saturando server o rete con traffico eccessivo.",duration:1.5})
+    .to('.list_container_RIGHT_CONTAINER',{y:"-80vh"})
+    .addLabel("seeSection5")
+    .to(danger_text[3],{text:""})
+    .to(danger_title[3],{fontsize:"5em",opacity:0.3,color:"#AEAAA6"})
+    .fromTo(danger_title[4],{fontSize:"5em",opacity:"0.3",color:"#AEAAA6"},{fontSize:"3em",duration:2,opacity:"1",color:"#F18010"})
+    .fromTo(danger_text[4], {text:""},{text:"Accesso illecito ai dati, passivo se limitato alla lettura, attivo se comporta modifica.",duration:1.5})
+    .to('.list_container_RIGHT_CONTAINER',{y:"-100vh"})
+    .addLabel("seeSection6")
+    .to(danger_text[4],{text:""})
+    .to(danger_title[4],{fontsize:"5em",opacity:0.3,color:"#AEAAA6"})
+    .fromTo(danger_title[5],{fontSize:"5em",opacity:"0.3",color:"#AEAAA6"},{fontSize:"3em",duration:2,opacity:"1",color:"#F18010"})
+    .fromTo(danger_text[5], {text:""},{text:"Attacco effettuato tramite phishing o bruteforce, finalizzato al furto d'identità.",duration:1.5})
+    .to('.list_container_RIGHT_CONTAINER',{y:"-120vh"})
+    .addLabel("end")
+    .to(".square", {scale:0,rotation:0})
 
-    },
-    ease: "power3.inOut",
-    scrollTrigger: {
-      trigger: danger_title[i],
-      start: "top bottom-=70",
-      end: "+=800", // 500px of scroll
-      scrub: 0.5
-    }
-  });
-  gsap.to(danger_text[i], {
-    motionPath: {
-      path: [{x:1920,y:0,opacity:-5},{x: 0,y:0,opacity:1}], // straight down 500px
+    
+  
 
-    },
-    ease: "power3.inOut",
-    scrollTrigger: {
-      trigger: danger_text[i],
-      start: "top bottom-=70",
-      end: "+=400", // 500px of scroll
-      scrub: 0.5
-    }
-  });
-}
+// gsap.to(".square", {
+//   scrollTrigger: {
+//     trigger: ".square",
+//       start: "top bottom-=350",
+//       end: "+=300", 
+//       scrub: 1
+//   },
+//   motionPath: [
+//     {scale:"0",rotation:"0"},
+//     { scale: "0.75", rotation: "45" }
+//   ],
+//   delay: 0.5,
+//   ease: "power4.inOut" 
+// });
+//
+// //once again i have to suffer
+// for (let i =0;i<6;i++){
+//   gsap.to(danger_title[i], {
+//     motionPath: {
+//       path: [{x:1920,y:0,opacity:-5},{x: 0,y:0,opacity:1}], // straight down 500px
+//
+//     },
+//     ease: "power3.inOut",
+//     scrollTrigger: {
+//       trigger: danger_title[i],
+//       start: "top bottom-=70",
+//       end: "+=800", // 500px of scroll
+//       scrub: 0.5
+//     }
+//   });
+//   gsap.to(danger_text[i], {
+//     motionPath: {
+//       path: [{x:1920,y:0,opacity:-5},{x: 0,y:0,opacity:1}], // straight down 500px
+//
+//     },
+//     ease: "power3.inOut",
+//     scrollTrigger: {
+//       trigger: danger_text[i],
+//       start: "top bottom-=70",
+//       end: "+=400", // 500px of scroll
+//       scrub: 0.5
+//     }
+//   });
+// }
 
 
  });

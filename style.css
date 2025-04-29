@@ -13,11 +13,12 @@
   src: url(xternal/TASAOrbiterDisplay-Regular-BF64891cba1d563.otf);
 }
 
-.line{
+.line {
   width: 90%;
   height: 0.2vh;
   background-color: #131416;
 }
+
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -48,13 +49,14 @@ ul {
 }
 
 div {
-     /*border: solid 1px red; */
+  /* border: solid 1px red; */
 }
 
-.workaround{
+.workaround {
   margin-top: 100px;
   padding-top: 500px;
 }
+
 ol,
 ul {
   list-style: none;
@@ -175,59 +177,93 @@ progress::-webkit-progress-value {
   font-family: TASA-R;
 }
 
-.sez_list_right{
+.sez_list_right {
   width: 100%;
-  height: 150vh;
+  height: 100vh;
   display: flex;
-  padding-right: 5%;
+  /* padding-right: 5%; */
+
+  justify-content: center;
+  align-items: center;
 }
 
-.list_container_RIGHT_CONTAINER .line{
+.list_container_RIGHT_CONTAINER .line {
   background-color: #535350;
 }
 
-.list_container_RIGHT_CONTAINER{
+
+
+.list_container_RIGHT_CONTAINER {
   width: 100%;
-  height: 100%;
+  height: 160vh;
   display: flex;
-  align-items:flex-start;
+
   flex-direction: column;
-  justify-content:end;
-  overflow: hidden;
-  
+
+  /* overflow: hidden;   */
+
 }
 
+.list_container_LEFT_CONTAINER {
 
-.list_elements{
+  height: 20vh;
   display: flex;
+  align-items: center;
 }
-.sez_list_right h1{
+.title_list {
+  height: 100%;
+  width: 65%;
+}
+
+.list_elements {
+  display: flex;
+  height: 90%;
+  width: 45%;
+
+  padding-top: 10%;
+}
+
+.list_element {
+  width: 100%;
+
+  height: 20vh;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+}
+
+.sez_list_right h1 {
   text-align: left;
   font-size: 8em;
   padding-left: 5%;
   padding-top: 7%;
+  opacity: 1;
 }
 
-.sez_list_right h2{
+.sez_list_right h2 {
   font-family: TASA-DSB;
   text-align: left;
   font-size: 5em;
   color: #AEAAA6;
+  opacity: 0.3;
 }
-.sez_list_right h2:hover{
+
+.sez_list_right h2:hover {
   color: #F18010;
 }
-.sez_list_right p{
-  font-size: 1.8em;
+
+.sez_list_right p {
+  font-size: 2.3em;
   /*margin-right: 5%;*/
   text-align: left;
 }
 
-.square{
+.square {
   height: 50px;
   width: 50px;
   background-color: #F18010;
-  
 }
 
 
@@ -252,6 +288,7 @@ ol {
   width: 80%;
   font-family: TASA-R;
 }
+
 .sezL_left {
   width: 65%;
   height: 100%;
@@ -331,7 +368,7 @@ ol {
 }
 
 
-.sez_center{
+.sez_center {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -340,7 +377,7 @@ ol {
 }
 
 
-.sez_center h1{
+.sez_center h1 {
   text-align: center;
   font-size: 8em;
   padding-left: 5%;
@@ -349,14 +386,14 @@ ol {
 
 
 
-.sez_center h2{
+.sez_center h2 {
   font-family: TASA-DSB;
   text-align: center;
   font-size: 5em;
   color: #AEAAA6;
 }
 
-.sez_center p{
+.sez_center p {
   font-size: 1.8em;
   margin-right: 5%;
   margin-left: 5%;
@@ -364,22 +401,23 @@ ol {
   margin-top: 1.5%;
 }
 
-.cifrari_holder{
+.cifrari_holder {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   flex-direction: row;
 }
 
-.cifrario{
+.cifrario {
   width: 100%;
   height: 65vh;
   background-color: #F18010;
-   display: flex;
+  display: flex;
   align-items: center;
   flex-direction: column;
 }
-.cifrario h2{
+
+.cifrario h2 {
   font-family: TASA-DB;
   color: #131416;
   text-align: justify;
@@ -387,22 +425,23 @@ ol {
   font-size: 5.3em;
 }
 
-.cifrario p{
+.cifrario p {
   color: #131416;
-    font-size: 1.8em;
-    text-align: right;
-     margin-right: 0%;
+  font-size: 1.8em;
+  text-align: right;
+  margin-right: 0%;
   margin-left: 0%;
   margin-top: 0%;
 
 }
 
-.cifrario_box{
+.cifrario_box {
   width: 32%;
   height: 66vh;
   display: flex;
 }
-.cifrario_shadow{
+
+.cifrario_shadow {
   width: 1%;
   height: 65vh;
   background-color: #6b4621;
