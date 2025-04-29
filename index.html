@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 
   <title>Sicurezza delle reti</title>
 </head>
@@ -121,52 +122,128 @@
         </div>
       </div>
 
+  <div class="sez sez_center">
 
-      <div class="sez sez_center">
-        <h1>At%$!Hj'-c4S</h1>
-        <p>La crittografia (dal greco <em>kryptós</em> = “nascosto”, <em>graphía</em> = “scrittura”) trasforma i
-          messaggi in crittogrammi illeggibili senza autorizzazione.
-          Il <code>plaintext</code> si trasforma in <code>ciphertext</code> grazie a una o più chiavi, che devono
-          rimanere segrete per mantenere private le comunicazioni anche su canali pubblici.</p>
-        </p>
-        <h2>Cifrari Storici</h2>
-        <div class="cifrari_holder">
+    
+    <h1>At%$!Hj'-c4S</h1>
+    <p>La crittografia (dal greco <em>kryptós</em> = “nascosto”, <em>graphía</em> = “scrittura”) trasforma i messaggi in crittogrammi illeggibili senza autorizzazione.  
+  Il <code>plaintext</code> si trasforma in <code>ciphertext</code> grazie a una o più chiavi, che devono rimanere segrete per mantenere private le comunicazioni anche su canali pubblici.</p>
+<h2>Cifrari Storici</h2>
+<div class="cifrari_holder">
+  <div class="cifrario">
+    <img
+        src="substitution.png"
+        alt="">
+    <h2>CIFRARIO A SOSTITUZIONE</h2>
+    <div class="line"></div>
+     <p>Sostituisce ogni carattere alfabetico. <br>Un esempio è il cifrario di Cesare.</p>
 
-
-          <div class="cifrario_box">
-            <div class="cifrario">
-              <img src="substitution.png" alt="">
-              <h2>CIFRARIO A SOSTITUZIONE</h2>
-              <div class="line"></div>
-              <p>Sostituisce ogni carattere alfabetico. <br>Un esempio è il cifrario di Cesare.</p>
-
-            </div>
-            <div class="cifrario_shadow"></div>
-          </div>
+  </div>
 
 
 
-          <div class="cifrario_box">
-            <div class="cifrario">
-              <img src="transposition.png" alt="">
-              <h2>CIFRARIO A TRASPOSIZIONE</h2>
-              <div class="line"></div>
-              <p>Permuta l'insieme di caratteri.</p>
-
-            </div>
-            <div class="cifrario_shadow"></div>
-          </div>
-
+  <div class="cifrario">
+    <img
+        src="transposition.png"
+        alt="">
+    <h2>CIFRARIO A TRASPOSIZIONE</h2>
+    <div class="line"></div>
+    <p>Permuta l'insieme di caratteri.</p>
+    
+  </div>
 
 
+</div>
+<p>Entrambe richiedono una chiave comune tra mittente e destinatario (crittografia simmetrica), ma sono vulnerabili ad analisi e attacchi.</p>
+</div>
 
+    <div class="sez_left_and_right sez">
+    
+      <h1 class="introtext">Crittografia Simmetrica Moderna</h1>
+      <p class="introtext">
+        Oggi, per aumentare la sicurezza rispetto ai metodi storici si utilizzano cifrari a blocchi. Questi algoritmi operano non sui singoli caratteri, ma su interi blocchi di bit (tipicamente da 64 o 128 bit), rendendo molto più difficile l'analisi e la violazione dei messaggi cifrati.
+      </p><div class="left_and_right_text">
+        <div class="left_and_right_block Lblock"><h2>DES:</h2><h3>(Data Encryption Standard)</h3><p>inventata negli anni '70, lavora su blocchi di 64 bit con una chiave effettiva di 56 bit. Oggi è considerato insicuro a causa della brevità della chiave, che può essere violata con attacchi a forza bruta.</p></div>
+        <div class="left_and_right_block Rblock"><h2>3DES:</h2><h3>(Triple DES)</h3><p>versione potenziata del DES, applica il processo di cifratura tre volte con tre chiavi diverse.</p></div>
+        <div class="left_and_right_block Lblock"><h2>AES:</h2><h3>(Advanced Encryption Standard)</h3><p>utilizza chiavi di 128, 192 o 256 bit e lavora su blocchi di 128 bit. </p></div>
+        <div class="left_and_right_block Rblock"><h2>IDEA:</h2><h3>(International Data Encryption Algorithm)</h3><p>lavora su blocchi di 64 bit con chiavi di 128 bit.</p></div>
         </div>
-        <p>Entrambe richiedono una chiave comune tra mittente e destinatario (crittografia simmetrica), ma sono
-          vulnerabili ad analisi e attacchi.</p>
+    </div>
+    
+  <div class="sezL sez">
+    <div class="sezL_left fit_this">
+      <h1>Scambio di Chiavi di Diffie-Hellman</h1>
+      <p >
+      La crittografia simmetrica richiede che mittente e destinatario conoscano la stessa chiave segreta. Ma come scambiarsi la chiave in modo sicuro su un canale potenzialmente intercettato? Diffie e Hellman idearono un metodo che permette a due persone di creare una chiave segreta condivisa anche se comunicano attraverso un canale pubblico insicuro.
+      <br><b style="font-size: 1.1em;">Come Funziona?</b><br>
+      Alice sceglie un numero \(g\) generatore di \(p\). \(g\) è generatore di \(p\) se elevato alle sue potenze naturali può generare qualsiasi numero tra \(1\) e \(p-1\) modulo \(p\). Questo è necessario per poter resistere a potenziali attacchi brute-force.
+      Alice sceglie un numero segreto \(a\).
+      Calcola \(A=g^a \mod p\). Da \(A\) è computazionalmente impossibile ricavare \(a\) a causa del problema del logaritmo discreto.
+      Alice invia \(A\), \(g\) e \(p\) a Bob, che sceglie un numero segreto \(b\).
+      Bob calcola \(B=g^b \mod p\).
+      Invia \(B\) ad Alice. 
+      La chiave di Alice è \(K=B^a \mod p\), la chiave di Bob è \(K=A^b \mod p\). 
+      Per le proprietà delle potenze è possibile dimostrare che queste due chiavi sono identiche.
+      
+      </p>
       </div>
-      <div class="workaround"></div>
+      <div class="sezL_right">        <img
+            src="https://imgs.search.brave.com/EWu16rJS75o1VzaQ1ZX5BB1GYIiywHp6ZEYJBge7sZM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS50ZW5vci5jb20v/VDdwcE1xNGhoSklB/QUFBbS9nb29kLWJv/eS53ZWJw"
+            alt=""></div>
+    </div>
+
+    
+      <div class="sez sezR">
+
+        <div class="sezR_left">
+          <p>
+           Nel 1977, Ron Rivest, Adi Shamir e Leonard Adleman svilupparono l'algoritmo RSA.
+A differenza della crittografia simmetrica, che richiede una chiave segreta condivisa, la crittografia asimmetrica usa una coppia di chiavi:
+una pubblica, da distribuire liberamente, e una privata, da mantenere segreta.
+Il mittente cifra il messaggio con la chiave pubblica del destinatario, che può decifrarlo solo con la propria chiave privata.
+          </p>
+        </div>
+
+        <div class="sezR_right">
+          
+          <h1 class="big_text">ALGORITMO<br> RSA:</h1>
+        </div>
+      </div>
+
+        <div class="sez sezR">
+
+        <div class="sezR_left">
+          <img
+            src="https://imgs.search.brave.com/EWu16rJS75o1VzaQ1ZX5BB1GYIiywHp6ZEYJBge7sZM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS50ZW5vci5jb20v/VDdwcE1xNGhoSklB/QUFBbS9nb29kLWJv/eS53ZWJw"
+            alt="">
+        </div>
+
+        <div class="sezR_right">
+          <h1>Come funziona l'algoritmo?</h1>
+          <p>Si scelgono due numeri primi grandi \( p \) e \( q \), poi si calcola \( n = p \cdot q \) e \( \varphi(n) = (p - 1)(q - 1) \). Si seleziona quindi un esponente pubblico \( e \), tale che sia coprimo con \( \varphi(n) \), e si calcola l'esponente privato \( d \) secondo la formula \( d = \frac{k \cdot \varphi(n) + 1}{e} \), con \( k \) intero. La chiave pubblica è \( (n, e) \), mentre la chiave privata è \( (n, d) \). Per cifrare un messaggio \( M \), si calcola \( C = M^e \mod n \). Per decifrare, si applica \( M = C^d \mod n \). Per comprendere perché la decifratura restituisce il messaggio originale, consideriamo \( C^d \mod n = M^{ed} \mod n \). Poiché \( ed = k \cdot \varphi(n) + 1 \), allora \( M^{ed} \mod n = M^{k \cdot \varphi(n) + 1} \mod n = M^{k \cdot \varphi(n)} \cdot M \mod n \). Se \(\gcd(M, n) = 1 \), allora per il teorema di Eulero \( M^{\varphi(n)} \mod n = 1 \), quindi \( M^{k \cdot \varphi(n)} \cdot M \mod n = M \mod n \), e il messaggio originale viene correttamente recuperato.
+          </p>
+        </div>
+      </div>
+        <div class="sez sez_center">
+
+          <h1>La crittografia ibrida
+          </h1>
+          <p>Poiché gli algoritmi di crittografia asimmetrica sono molto più lenti rispetto a quelli simmetrici, in pratica si utilizza una crittografia ibrida:
+il messaggio viene cifrato con un algoritmo simmetrico veloce, mentre la chiave di sessione usata per cifrarlo viene a sua volta cifrata con RSA (crittografia asimmetrica).
+In questo modo si combina l'efficienza della crittografia simmetrica con la sicurezza nello scambio delle chiavi garantita dalla crittografia asimmetrica.</p>
+            <div class="image_holder">   <img
+            src="https://imgs.search.brave.com/EWu16rJS75o1VzaQ1ZX5BB1GYIiywHp6ZEYJBge7sZM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS50ZW5vci5jb20v/VDdwcE1xNGhoSklB/QUFBbS9nb29kLWJv/eS53ZWJw"
+            alt=""></div>
+            <h1>Le funzioni di Hash
+          </h1>
+          <p>Le funzioni di hash vengono utilizzate per garantire l'integrità dei messaggi. Una funzione di hash trasforma un messaggio di qualsiasi lunghezza in una stringa a lunghezza fissa, non reversibile. Prima dell'invio, si calcola l’hash del messaggio, lo si cifra con la chiave privata del mittente e lo si allega al messaggio cifrato. Il destinatario, una volta ricevuto il messaggio, decifra l’hash con la chiave pubblica del mittente e lo confronta con l’hash calcolato dal messaggio ricevuto. Se i due valori coincidono, si ha la certezza che il messaggio non è stato alterato. Le funzioni di hash sono fondamentali anche per la gestione delle password: nei database, infatti, non viene salvata la password in chiaro, ma solo il suo hash. Durante l’accesso, l’hash della password inserita viene confrontato con quello salvato. In questo modo, nemmeno gli amministratori del sistema conoscono le password originali degli utenti.
+
+</p>
+        </div>
+      
     </div>
   </div>
+
 
   <script src="scramble_text.js"></script>
   <script src="scroll_smoother.js"></script>
