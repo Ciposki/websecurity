@@ -214,7 +214,7 @@ progress::-webkit-progress-value {
 
 .list_container_RIGHT_CONTAINER {
   width: 100%;
-  height: 160vh;
+  height: 165vh;
   display: flex;
 
   flex-direction: column;
@@ -238,7 +238,7 @@ progress::-webkit-progress-value {
   display: flex;
   height: 90%;
   width: 45%;
-
+  gap:5%;
   padding-top: 10%;
 }
 
