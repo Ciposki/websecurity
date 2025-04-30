@@ -295,7 +295,7 @@ scrollTrigger: {
       .to(crittografia_title,{scrambleText:"La Crittografia",duration:3.5})
       .addLabel("Second")
       .to(".top",{x:"120%"})
-      .fromTo(".middle",{x:"-120%",opacity:0,paddingTop:"5%"},{x:0,opacity:1})
+      .fromTo(".middle",{x:"-120%",y:"-100vh",opacity:0,paddingTop:"5%"},{x:0,opacity:1})
       .addLabel("remove")
       .to(".middle",{x:"120%",delay:1})
       .addLabel("End")
