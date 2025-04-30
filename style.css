@@ -409,7 +409,7 @@ ol {
 
 .sez_center {
   width: 100%;
-  height: 100vh;
+  height: 200vh;
   position: relative; 
   display: flex;
   align-items:center;
@@ -419,7 +419,7 @@ ol {
 
 .elem{
   width: 100%;
-  height: 100%;
+  height: 50%;
 
 }
 .top ,.elem{
